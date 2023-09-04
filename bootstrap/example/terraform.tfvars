@@ -1,5 +1,5 @@
 organization_id = "600822357351"
-billing_account = "019AA9-0890B0-203A1A"
+billing_account = "Add Billing ID"
 root_folders = {
   "bootstrap" = "bootstrap"
   "project"   = "springml-sample"
@@ -83,6 +83,6 @@ cb_resources_trigger = {
 
 foundation_sa_iam_bindings = {
   "roles/iam.serviceAccountTokenCreator" = [
-    "user:akash.das@springml.com"
+    "user:shriram.gaddam@springml.com"
   ]
 }
