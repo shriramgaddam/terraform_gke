@@ -85,21 +85,6 @@ cloud_armor_rules = [
 cert_issuer_email = "shriram.gaddam@gmail.com"
 api_domain        = "shriramgaddam.com"
 
-################################## CUSTOM ROLE vars #####################################
-
-custom_roles = {
-  ksa_custom_role = {
-    target_level = "project"
-    target_id    = "presales-team-mahesh-15jul"
-    role_id      = "ksa_custom_role"
-    title        = "KSA custom role for network"
-    description  = "Allows KSA to edit firewall in  Project"
-    permissions = [
-      "compute.networks.updatePolicy", "compute.firewalls.list", "compute.firewalls.get", "compute.firewalls.create",
-      "compute.firewalls.update", "compute.firewalls.delete"
-    ]
-  }
-}
 
 ##################################  NETWORK vars ##################################
 
