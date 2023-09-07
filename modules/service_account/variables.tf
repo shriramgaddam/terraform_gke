@@ -25,3 +25,9 @@ variable "description" {
   description = "Default description of the created service accounts (defaults to no description)"
   default     = ""
 }
+
+variable "generate_keys" {
+  type        = bool
+  description = "Generate keys for service accounts."
+  default     = false
+}

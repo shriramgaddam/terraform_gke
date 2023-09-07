@@ -9,4 +9,5 @@ module "service_account" {
   display_name  = var.display_name
   description   = var.description
   project_roles = var.project_roles
+  generate_keys = var.generate_keys
 }

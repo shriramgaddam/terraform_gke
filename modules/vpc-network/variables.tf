@@ -76,6 +76,7 @@ variable "private_services_cidrs" {
     })
   )
   description = "IP CIDR for ip address in network"
+  default     = {}
 }
 
 variable "create_vpc_peering" {
