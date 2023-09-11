@@ -1,0 +1,44 @@
+steps:
+- id: 'Skaffold run'
+  name: 'gcr.io/cloud-builders/gcloud'
+  env:
+  - 'CLOUDSDK_COMPUTE_ZONE=us-central1'
+  - 'CLOUDSDK_CONTAINER_CLUSTER=default-cluster'
+  entrypoint: 'bash'
+  timeout: 1200s
+  args:
+    - '-c'
+    - |
+      curl -s "https://raw.githubusercontent.com/kubernetes-sigs/kustomize/master/hack/install_kustomize.sh"  | bash
+      cp kustomize /usr/local/bin/kustomize
+      cp kustomize `which kustomize`
+      echo "Kustomize version:"
+      kustomize version
+
+      curl -fsSL -o get_helm.sh https://raw.githubusercontent.com/helm/helm/master/scripts/get-helm-3
+      chmod 700 get_helm.sh
+      ./get_helm.sh
+
+      echo
+      curl -Lo skaffold https://storage.googleapis.com/skaffold/releases/v1.29.0/skaffold-linux-amd64
+      cp skaffold /usr/local/bin/skaffold
+      cp skaffold `which skaffold`
+      echo "Skaffold version:"
+      skaffold version
+      echo
+      gcloud container clusters get-credentials $_CLUSTER_NAME --region us-central1 --project $_PROJECT_ID
+
+
+      echo "========== Environment variables ========"
+      echo "GCP_PROJECT=${_PROJECT_ID}"
+      echo "========================================="
+
+      branches_for_deploy=(
+        "dev-application"
+        "uat-application")
+      if [[ " ${branches_for_deploy[@]} " =~ "$BRANCH_NAME" ]]; then
+
+        skaffold run --default-repo gcr.io/$_PROJECT_ID -n default
+      fi
+
+timeout: 2000s
