@@ -14,6 +14,7 @@ class Name(BaseModel):
 
 @app.get("/")
 async def root():
+    print('entered get')
     return {"message": "Hello World"}
 
 
