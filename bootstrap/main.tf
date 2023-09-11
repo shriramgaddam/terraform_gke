@@ -91,7 +91,7 @@ resource "google_cloudbuild_trigger" "application-trigger" {
   repository_event_config {
     repository = google_cloudbuildv2_repository.my_repository.id
     push {
-      branch = "dev-app*"
+      branch = "dev-application"
     }
   }
 
