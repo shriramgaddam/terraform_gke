@@ -96,5 +96,5 @@ resource "google_cloudbuild_trigger" "application-trigger" {
     }
   }
 
-  filename = "gke_terraform/cloudbuild-app.yaml"
+  filename = "cloudbuild-app.yaml"
 }
