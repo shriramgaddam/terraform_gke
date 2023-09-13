@@ -41,10 +41,10 @@ spec:
     http:
       paths:
       - pathType: Prefix
-        path: /
+        path: /hello
         backend:
           service:
-            name: app-poc
+            name: simple-app
             port:
              number: 80
 
@@ -54,8 +54,8 @@ spec:
       secretName: letsencrypt
 YAML
 
-  # depends_on = [
-  #   module.cert_manager
-  # ]
+  depends_on = [
+    module.cert_manager
+  ]
 }
 
