@@ -14,7 +14,7 @@ class Name(BaseModel):
 
 @app.get("/")
 async def root():
-    print('entered get 5')
+    print('testing app trigger5')
     return {"message": "Hello World"}
 
 
