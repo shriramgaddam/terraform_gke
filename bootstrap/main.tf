@@ -68,7 +68,8 @@ resource "google_cloudbuildv2_repository" "my_repository" {
 resource "google_cloudbuild_trigger" "infra-trigger" {
   location = "us-central1"
   project = "presales-team-mahesh-15jul"
-  name    =  "dev-branch"
+  name    =  "dev-infra-trigger"
+  ignored_files      = ["gke_terraform/application/**"]
 
   repository_event_config {
     repository = google_cloudbuildv2_repository.my_repository.id
