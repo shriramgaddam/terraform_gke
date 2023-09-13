@@ -86,7 +86,7 @@ resource "google_cloudbuild_trigger" "application-trigger" {
   location = "us-central1"
   project = "presales-team-mahesh-15jul"
   name    =  "dev-application-branch"
-  included_files      = ["gke_terraform/application/**"]
+  included_files      = ["**"]
   
 
   repository_event_config {
