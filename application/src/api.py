@@ -14,7 +14,7 @@ class Name(BaseModel):
 
 @app.get("/")
 async def root():
-    print('testing app ssdtrigger5')
+    print('testing aggpp ssdtrigger5')
     return {"message": "Hello World"}
 
 
