@@ -59,7 +59,7 @@ cloud_armor_rules = [
       {
         versioned_expr = "SRC_IPS_V1"
         config = {
-          src_ip_ranges = ["174.16.55.71"]
+          src_ip_ranges = ["*"]
         }
       }
     ]
