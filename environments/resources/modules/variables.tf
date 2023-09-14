@@ -130,5 +130,19 @@ variable "api_domain" {
   description = "api domain name"
 }
 
+variable "cluster_issuer_name" {
+  type        = string
+  description = "environment of the project (dev or prod)"
+}
 
+variable "private_key_secret_name" {
+  type        = string
+  description = "environment of the project (dev or prod)"
+}
+
+
+variable "static_ip_name" {
+  type        = string
+  description = "environment of the project (dev or prod)"
+}
 

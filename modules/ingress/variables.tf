@@ -1,7 +1,3 @@
-variable "cert_issuer_email" {
-  type        = string
-  description = "email of the cert issuer"
-}
 
 variable "api_domain" {
   type        = string
@@ -14,6 +10,26 @@ variable "project_id" {
 }
 
 variable "environment" {
+  type        = string
+  description = "environment of the project (dev or prod)"
+}
+
+variable "cert_issuer_email" {
+  type        = string
+  description = "environment of the project (dev or prod)"
+}
+
+variable "cluster_issuer_name" {
+  type        = string
+  description = "environment of the project (dev or prod)"
+}
+variable "private_key_secret_name" {
+  type        = string
+  description = "environment of the project (dev or prod)"
+}
+
+
+variable "static_ip_name" {
   type        = string
   description = "environment of the project (dev or prod)"
 }
