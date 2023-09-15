@@ -28,10 +28,11 @@ kind: Ingress
 metadata:
   name: app-poc
   annotations:
-    kubernetes.io/ingress.global-static-ip-name: web-ip
+    kubernetes.io/ingress.global-static-ip-name: ${var.static_ip_name}
     cert-manager.io/cluster-issuer: ${var.cluster_issuer_name}
     kubernetes.io/ingress.class: gce
     kubernetes.io/ingress.allow-http: "true"
+    cert-manager.io/issue-temporary-certificate: "true"
     acme.cert-manager.io/http01-edit-in-place: "true"
     networking.gke.io/v1beta1.FrontendConfig: "frontend-config"
 
