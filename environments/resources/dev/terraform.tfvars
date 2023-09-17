@@ -82,9 +82,12 @@ cloud_armor_rules = [
 
 ################################## INGRESS vars ###############################
 
-cert_issuer_email = "shriram.gaddam@gmail.com"
-api_domain        = "shriramgaddam.com"
 
+  cert_issuer_email                      = "shriram.gaddam@springml.com"
+  cluster_issuer_name                    = "letsencrypt-prod"
+  private_key_secret_name                = "letsencrypt"
+  api_domain                             = "gke-demo.shriramgaddam.com"
+  static_ip_name                         = "web-ip"
 
 ##################################  NETWORK vars ##################################
 
@@ -162,5 +165,12 @@ firewall_rules = [
     }
   }
 ]
+
+
+
+
+
+
+
 
 

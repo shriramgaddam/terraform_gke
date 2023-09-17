@@ -6,7 +6,7 @@ module "gke" {
   region                     = var.default_region
   gke_cluster_zones          = var.gke_cluster_zones
   network                    = "${var.vpc_common_name}-vpc"
-  subnetwork                 = "presales-team-mahesh-15jul-subnet-dev"
+  subnetwork                 = "${var.project_id}-subnet-${var.environment}"
   ip_range_pods              = var.ip_range_pods
   ip_range_services          = var.ip_range_services
   master_authorized_networks = []
