@@ -1,7 +1,7 @@
 ################# project state bucket creation ##################
 
 resource "google_storage_bucket" "state_bucket" {
-  name     = "${var.project_id}-tfstate"
+  name     = "${var.project_id}-0-tfstate"
   project  = var.project_id
   location = var.default_region
   versioning {
