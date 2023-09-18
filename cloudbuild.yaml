@@ -22,7 +22,7 @@ steps:
         cd environments/resources/$BRANCH_NAME
         terraform init || exit 1
         
-        dir=${environments/resources/$BRANCH_NAME/}
+        dir="environments/resources/$BRANCH_NAME/"
         env=${dir%*/}
         env=${env#*/} 
         echo ""
