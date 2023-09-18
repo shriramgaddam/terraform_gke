@@ -25,7 +25,7 @@ steps:
         
         dir="environments/resources/$BRANCH_NAME/"
         env= "${dir%*/}"
-        echo "{env}"
+        echo "${env}"
         env= "${env#*/}" 
         echo "${env}"
         echo ""
