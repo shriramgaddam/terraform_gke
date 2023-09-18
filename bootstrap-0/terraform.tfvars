@@ -62,5 +62,5 @@ cloudbuild_triggers = {
 infra_repo = "terraform_gke"
 infra_secret_id ="infra-repo"
 infra_repo_uri = "https://github.com/shriramgaddam/terraform_gke.git"
-github_pat = "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"
+github_pat = "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"
 installation_id = "41651629"

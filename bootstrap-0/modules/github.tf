@@ -19,9 +19,9 @@ data "google_project" "project" {
     project_id = var.project_id
 }
 
-# output "project_number" {
-#   value = data.google_project.project.number
-# }
+output "project_number" {
+  value = data.google_project.project.number
+}
 
 data "google_iam_policy" "serviceagent_secretAccessor" {
     binding {
