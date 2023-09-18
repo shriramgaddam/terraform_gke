@@ -27,6 +27,7 @@ steps:
         dir="environments/resources/$BRANCH_NAME/"
         echo "resources path ${dir}"
         env="${dir%*/}"
+        env="${env#*/}" 
       
         echo ""
         echo "*************** TERRAFORM INIT ******************"
