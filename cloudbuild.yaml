@@ -28,7 +28,7 @@ steps:
         echo "resources path ${dir}"
         env="${dir%*/}"
         echo "resources 1 ${env} "
-        env="${env#*/}" 
+        env="${env##*/}" 
         echo "resources 2 ${env} "
         echo ""
         echo "*************** TERRAFORM INIT ******************"
