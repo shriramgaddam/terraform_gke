@@ -35,7 +35,8 @@ cloudbuild_triggers = {
     trigger_description  = "Trigger for dev cloudbuild project infra components"
     repo_name            = "terraform_gke"
     branch_name          = "dev"
-    included_files       = ["gke_terraform/environments/project/dev/**", "gke_terraform/environments/resources/dev/**"]
+    #included_files       = ["gke_terraform/environments/project/dev/**", "gke_terraform/environments/resources/dev/**"]
+    included_files       = ["**"]
     substitutions = {
       _SUBNET            = "presales-team-mahesh-15jul-vpc"
     }
