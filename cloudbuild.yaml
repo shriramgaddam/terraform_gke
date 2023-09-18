@@ -6,7 +6,7 @@ steps:
   - '-c'
   - | 
       echo "***********************"
-      echo "$BRANCH_NAME"
+      echo "$BRANCH_NAMERRRRR"
       echo "***********************"
 
 - id: 'tf init'
