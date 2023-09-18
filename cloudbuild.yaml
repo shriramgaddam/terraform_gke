@@ -20,6 +20,7 @@ steps:
         cd environments/project/$BRANCH_NAME
         terraform init || exit 1
         cd ../../../
+        echo "*************** TERRAFORM INIT for project******************"
         cd environments/resources/$BRANCH_NAME
         terraform init || exit 1
         
