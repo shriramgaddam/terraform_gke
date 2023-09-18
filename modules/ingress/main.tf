@@ -20,43 +20,43 @@ module "cert_manager" {
 }
 
 
-# resource "kubectl_manifest" "ingress" {
-#   yaml_body = <<YAML
+resource "kubectl_manifest" "ingress" {
+  yaml_body = <<YAML
 
-# apiVersion: networking.k8s.io/v1
-# kind: Ingress
-# metadata:
-#   name: app-poc
-#   annotations:
-#     kubernetes.io/ingress.global-static-ip-name: ${var.static_ip_name}
-#     cert-manager.io/cluster-issuer: ${var.cluster_issuer_name}
-#     kubernetes.io/ingress.class: gce
-#     kubernetes.io/ingress.allow-http: "true"
-#     cert-manager.io/issue-temporary-certificate: "true"
-#     acme.cert-manager.io/http01-edit-in-place: "true"
-#     networking.gke.io/v1beta1.FrontendConfig: "frontend-config"
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: app-poc
+  annotations:
+    kubernetes.io/ingress.global-static-ip-name: ${var.static_ip_name}
+    cert-manager.io/cluster-issuer: ${var.cluster_issuer_name}
+    kubernetes.io/ingress.class: gce
+    kubernetes.io/ingress.allow-http: "true"
+    cert-manager.io/issue-temporary-certificate: "true"
+    acme.cert-manager.io/http01-edit-in-place: "true"
+    networking.gke.io/v1beta1.FrontendConfig: "frontend-config"
 
-# spec:
-#   rules:
-#   - host: ${var.api_domain}
-#     http:
-#       paths:
-#       - pathType: Prefix
-#         path: /hello
-#         backend:
-#           service:
-#             name: simple-app
-#             port:
-#              number: 80
+spec:
+  rules:
+  - host: ${var.api_domain}
+    http:
+      paths:
+      - pathType: Prefix
+        path: /hello
+        backend:
+          service:
+            name: simple-app
+            port:
+             number: 80
 
-#   tls:
-#     - hosts:
-#       - ${var.api_domain}
-#       secretName: ${var.private_key_secret_name}
-# YAML
+  tls:
+    - hosts:
+      - ${var.api_domain}
+      secretName: ${var.private_key_secret_name}
+YAML
 
-#   # depends_on = [
-#   #   module.cert_manager
-#   # ]
-# }
+  # depends_on = [
+  #   module.cert_manager
+  # ]
+}
 
