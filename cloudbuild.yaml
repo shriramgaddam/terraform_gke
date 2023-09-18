@@ -19,6 +19,7 @@ steps:
       if [ -d "environments/project/$BRANCH_NAME/" ] && [ -d "environments/resources/$BRANCH_NAME/" ]; then
         cd environments/project/$BRANCH_NAME
         terraform init || exit 1
+        cd ../../../
         cd environments/resources/$BRANCH_NAME
         terraform init || exit 1
         
