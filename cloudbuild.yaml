@@ -24,8 +24,10 @@ steps:
         terraform init || exit 1
         
         dir="environments/resources/$BRANCH_NAME/"
-        env=${dir%*/}
-        env=${env#*/} 
+        env= "${dir%*/}"
+        echo "{env}"
+        env= "${env#*/}" 
+        echo "${env}"
         echo ""
         echo "*************** TERRAFORM INIT ******************"
         echo "******* At environment: ${env} ********"
