@@ -20,16 +20,12 @@ steps:
         cd environments/project/$BRANCH_NAME
         terraform init || exit 1
         cd ../../../
-        echo "*************** TERRAFORM INIT for project******************"
         cd environments/resources/$BRANCH_NAME
         terraform init || exit 1
-        echo "*************** TERRAFORM INIT for resources******************"
+
         dir="environments/resources/$BRANCH_NAME/"
-        echo "resources path ${dir}"
         env="${dir%*/}"
-        echo "resources 1 ${env} "
         env="${env##*/}" 
-        echo "resources 2 ${env} "
         echo ""
         echo "*************** TERRAFORM INIT ******************"
         echo "******* At environment: ${env} ********"
@@ -48,12 +44,13 @@ steps:
       if [ -d "environments/project/$BRANCH_NAME/" ] && [ -d "environments/resources/$BRANCH_NAME/" ]; then
         cd environments/project/$BRANCH_NAME
         terraform fmt || exit 1
+        cd ../../../
         cd environments/resources/$BRANCH_NAME
         terraform fmt || exit 1
         
-        dir=${environments/resources/$BRANCH_NAME/}
-        env=${dir%*/}
-        env=${env#*/} 
+        dir="environments/resources/$BRANCH_NAME/"
+        env="${dir%*/}"
+        env="${env##*/}" 
         echo ""
         echo "*************** TERRAFORM FMT ******************"
         echo "******* At environment: ${env} ********"
@@ -72,12 +69,13 @@ steps:
       if [ -d "environments/project/$BRANCH_NAME/" ] && [ -d "environments/resources/$BRANCH_NAME/" ]; then
         cd environments/project/$BRANCH_NAME
         terraform validate || exit 1
+        cd ../../../
         cd environments/resources/$BRANCH_NAME
         terraform validate || exit 1
         
-        dir=${environments/resources/$BRANCH_NAME/}
-        env=${dir%*/}
-        env=${env#*/} 
+        dir="environments/resources/$BRANCH_NAME/"
+        env="${dir%*/}"
+        env="${env##*/}"
         echo ""
         echo "*************** TERRAFORM VALIDATE ******************"
         echo "******* At environment: ${env} ********"
@@ -97,12 +95,13 @@ steps:
       if [ -d "environments/project/$BRANCH_NAME/" ] && [ -d "environments/resources/$BRANCH_NAME/" ]; then
         cd environments/project/$BRANCH_NAME
         terraform plan || exit 1
+        cd ../../../
         cd environments/resources/$BRANCH_NAME
         terraform plan || exit 1
         
-        dir=${environments/resources/$BRANCH_NAME/}
-        env=${dir%*/}
-        env=${env#*/} 
+        dir="environments/resources/$BRANCH_NAME/"
+        env="${dir%*/}"
+        env="${env##*/}"
         echo ""
         echo "*************** TERRAFORM PLAN ******************"
         echo "******* At environment: ${env} ********"
@@ -121,12 +120,13 @@ steps:
       if [ -d "environments/project/$BRANCH_NAME/" ] && [ -d "environments/resources/$BRANCH_NAME/" ]; then
         cd environments/project/$BRANCH_NAME
         terraform apply -auto-approve || exit 1
+        cd ../../../
         cd environments/resources/$BRANCH_NAME
         terraform apply -auto-approve || exit 1
         
-        dir=${environments/resources/$BRANCH_NAME/}
-        env=${dir%*/}
-        env=${env#*/} 
+        dir="environments/resources/$BRANCH_NAME/"
+        env="${dir%*/}"
+        env="${env##*/}"
         echo ""
         echo "*************** TERRAFORM APPLY ******************"
         echo "******* At environment: ${env} ********"
