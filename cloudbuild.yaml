@@ -23,7 +23,7 @@ steps:
         echo "*************** TERRAFORM INIT for project******************"
         cd environments/resources/$BRANCH_NAME
         terraform init || exit 1
-        
+        echo "*************** TERRAFORM INIT for resources******************"
         dir="environments/resources/$BRANCH_NAME/"
         echo "${dir}"
         env= "${dir%*/}"
