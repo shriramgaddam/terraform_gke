@@ -4,7 +4,8 @@ resource "google_cloudbuild_trigger" "infra-trigger" {
   location = var.default_region
   project = var.project_id
   name    =  each.value.trigger_name
-  #ignored_files      = ["gke_terraform/application/**"]
+  description = each.value.trigger_description
+  included_files       = each.value.included_files
 
   repository_event_config {
     repository = google_cloudbuildv2_repository.infra_repository.id
@@ -13,7 +14,7 @@ resource "google_cloudbuild_trigger" "infra-trigger" {
     }
   }
 
-  filename = each.value.filename
+  filename = each.value.cloudbuild_filename
 }
 
 

@@ -45,7 +45,6 @@ variable "cloudbuild_triggers" {
     branch_name         = string
     substitutions       = map(string)
     included_files      = list(string)
-    filename            = string
     approval_required   = bool
   }))
   description = "List of cloud build triggers to manage in centralised cloud build resources."

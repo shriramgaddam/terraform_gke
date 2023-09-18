@@ -30,17 +30,16 @@ service_accounts = {
 
 
 cloudbuild_triggers = {
-  "cloudbuild-resources-infra" = {
-    trigger_description  = "Trigger for testing cloudbuild project infra components"
+  "cloudbuild-infra-dev" = {
+    trigger_name         = "cloudbuild-trigger-infra-dev"
+    trigger_description  = "Trigger for dev cloudbuild project infra components"
     repo_name            = "terraform_gke"
     branch_name          = "dev"
-    included_files       = ["terraform-structure/environments/cloudbuild-resources/uat/**"]
+    included_files       = ["gke_terraform/environments/project/dev/**", "gke_terraform/environments/resources/dev/**"]
     substitutions = {
       _SUBNET            = "presales-team-mahesh-15jul-vpc"
     }
-    trigger_name         = "cloudbuild-resources-plan"
-    cloudbuild_filename  = "terraform-structure/cloudbuild-plan.yaml"
-    filename             = "cloudbuild.yaml"
+    cloudbuild_filename  = "cloudbuild.yaml"
     approval_required    = false
    },
   # "microservices-run-dev" = {
