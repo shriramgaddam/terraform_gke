@@ -21,10 +21,25 @@ service_accounts = {
     display_name_prefix = "cicd-tf-sa"
     project_role = [
       "roles/iam.serviceAccountAdmin",
- 
     ]
     sa_name_prefix = "cicd-tf-sa"
 
+  },
+   "tf-bootstrap-sa" = {
+    description         = "BootStrap Service Account"
+    display_name_prefix = "tf-bootstrap-sa"
+    project_role = [
+      "roles/iam.serviceAccountAdmin",
+      "roles/storage.admin",
+      "roles/source.admin",
+      "roles/iam.serviceAccountUser",
+      "roles/iam.serviceAccountAdmin",
+      "roles/iam.serviceAccountTokenCreator",
+      "roles/servicemanagement.quotaAdmin",
+      "roles/serviceusage.serviceUsageAdmin",
+      "roles/compute.admin"
+    ]
+    sa_name_prefix = "tf-bootstrap-sa"
   }
 }
 

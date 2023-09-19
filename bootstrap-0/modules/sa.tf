@@ -1,4 +1,3 @@
-
 module "service_accounts" {
   for_each      = var.service_accounts
   source        = "../../modules/service_account"
