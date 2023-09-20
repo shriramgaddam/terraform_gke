@@ -42,8 +42,10 @@ service_accounts = {
       "roles/cloudbuild.builds.editor",  
       "roles/container.admin",     
       "roles/compute.networkAdmin",  
-      "roles/storage.admin",   
-
+      "roles/storage.admin", 
+      "roles/container.clusterAdmin",
+      "roles/editor",
+      "roles/resourcemanager.projectIamAdmin" 
     ]
     sa_name_prefix = "tf-bootstrap-sa"
   }
