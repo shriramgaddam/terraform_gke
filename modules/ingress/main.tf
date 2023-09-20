@@ -44,7 +44,6 @@ metadata:
     networking.gke.io/managed-certificates: managed-cert
     kubernetes.io/ingress.class: gce
     kubernetes.io/ingress.allow-http: "true"
-    acme.cert-manager.io/http01-edit-in-place: "true"
     networking.gke.io/v1beta1.FrontendConfig: "frontend-config"
 
 spec:
@@ -60,9 +59,9 @@ spec:
             port:
              number: 80
 
-  tls:
-    - hosts:
-      - ${var.api_domain}
+  # tls:
+  #   - hosts:
+  #     - ${var.api_domain}
       
 YAML
 
