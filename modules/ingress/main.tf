@@ -2,22 +2,22 @@ resource "google_compute_global_address" "ipv4" {
   name = var.static_ip_name
 }
 
-module "cert_manager" {
-  source = "terraform-iaac/cert-manager/kubernetes"
+# module "cert_manager" {
+#   source = "terraform-iaac/cert-manager/kubernetes"
 
-  cluster_issuer_email                   = var.cert_issuer_email
-  cluster_issuer_name                    = var.cluster_issuer_name
-  cluster_issuer_private_key_secret_name = var.private_key_secret_name
-  solvers = [
-    {
-      http01 = {
-        ingress = {
-          class = "app-poc"
-        }
-      }
-    }
-  ]
-}
+#   cluster_issuer_email                   = var.cert_issuer_email
+#   cluster_issuer_name                    = var.cluster_issuer_name
+#   cluster_issuer_private_key_secret_name = var.private_key_secret_name
+#   solvers = [
+#     {
+#       http01 = {
+#         ingress = {
+#           class = "app-poc"
+#         }
+#       }
+#     }
+#   ]
+# }
 
 
 resource "kubectl_manifest" "ingress" {
