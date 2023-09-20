@@ -45,7 +45,8 @@ service_accounts = {
       "roles/storage.admin", 
       "roles/container.clusterAdmin",
       "roles/editor",
-      "roles/resourcemanager.projectIamAdmin" 
+      "roles/resourcemanager.projectIamAdmin",
+      "roles/container.hostServiceAgentUser"
     ]
     sa_name_prefix = "tf-bootstrap-sa"
   }
