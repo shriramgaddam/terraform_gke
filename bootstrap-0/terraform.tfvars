@@ -21,6 +21,7 @@ service_accounts = {
     display_name_prefix = "cicd-tf-sa"
     project_role = [
       "roles/iam.serviceAccountAdmin",
+      "roles/editor"
     ]
     sa_name_prefix = "cicd-tf-sa"
 
