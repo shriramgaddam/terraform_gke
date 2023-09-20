@@ -18,7 +18,19 @@ resource "google_compute_global_address" "ipv4" {
 #     }
 #   ]
 # }
+resource "kubectl_manifest" "managedcertificate" {
+  yaml_body = <<YAML
+apiVersion: networking.gke.io/v1
+kind: ManagedCertificate
+metadata:
+  name: managed-cert
+spec:
+  domains:
+    - ${var.api_domain}
 
+YAML
+
+}
 
 resource "kubectl_manifest" "ingress" {
   yaml_body = <<YAML
@@ -29,10 +41,9 @@ metadata:
   name: app-poc
   annotations:
     kubernetes.io/ingress.global-static-ip-name: ${var.static_ip_name}
-    cert-manager.io/cluster-issuer: ${var.cluster_issuer_name}
+    networking.gke.io/managed-certificates: managed-cert
     kubernetes.io/ingress.class: gce
     kubernetes.io/ingress.allow-http: "true"
-    cert-manager.io/issue-temporary-certificate: "true"
     acme.cert-manager.io/http01-edit-in-place: "true"
     networking.gke.io/v1beta1.FrontendConfig: "frontend-config"
 
@@ -52,7 +63,7 @@ spec:
   tls:
     - hosts:
       - ${var.api_domain}
-      secretName: ${var.private_key_secret_name}
+      
 YAML
 
   # depends_on = [
