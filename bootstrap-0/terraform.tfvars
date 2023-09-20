@@ -38,7 +38,12 @@ service_accounts = {
       "roles/iam.serviceAccountTokenCreator",
       "roles/servicemanagement.quotaAdmin",
       "roles/serviceusage.serviceUsageAdmin",
-      "roles/compute.admin"
+      "roles/compute.admin",
+      "roles/cloudbuild.builds.editor",  
+      "roles/container.admin",     
+      "roles/compute.networkAdmin",  
+      "roles/storage.admin",   
+
     ]
     sa_name_prefix = "tf-bootstrap-sa"
   }
