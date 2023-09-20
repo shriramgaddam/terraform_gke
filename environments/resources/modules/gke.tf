@@ -13,10 +13,10 @@ module "gke" {
   node_pools                 = [
     {
       name               = "gke-np-cpu-${var.environment}"
-      machine_type       = "n1-standard-16"
+      machine_type       = "e2-standard-2"
       min_count          = "1"
       max_count          = "6"
-      disk_size_gb       = "1000"
+      disk_size_gb       = "30"
       disk_type          = "pd-standard"
       image_type         = "COS_CONTAINERD"
       auto_repair        = true
