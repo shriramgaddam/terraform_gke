@@ -1,7 +1,8 @@
 environment       = "dev"
 default_region    = "us-central1"
 project_id        = "presales-team-mahesh-15jul"
-tf_backend_bucket = "presales-team-mahesh-15jul-tfstate"
+tf_backend_bucket = "presales-team-mahesh-15jul-tfstate" 
+tf_impersonate_service_account = "tf-bootstrap-sa@presales-team-mahesh-15jul.iam.gserviceaccount.com"
 
 
 ##################################  SAs vars ###############################

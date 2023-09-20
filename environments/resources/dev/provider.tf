@@ -22,15 +22,15 @@ terraform {
 }
 provider "google" {
   project = var.project_id
-  #impersonate_service_account = var.tf_impersonate_service_account
-  #request_timeout = var.provider_request_timeout
+  impersonate_service_account = var.tf_impersonate_service_account
+  request_timeout = var.provider_request_timeout
   region          = var.default_region
 }
 
 provider "google-beta" {
   project = var.project_id
   region  = var.default_region
-  #impersonate_service_account = var.tf_impersonate_service_account
+  impersonate_service_account = var.tf_impersonate_service_account
 }
 
 

@@ -109,5 +109,8 @@ variable "static_ip_name" {
 }
 
 
-
+variable "tf_impersonate_service_account" {
+  type        = string
+  description = "Service account to impersonate to run terraform"
+}
 
