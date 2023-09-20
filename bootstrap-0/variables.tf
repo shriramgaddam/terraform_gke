@@ -33,7 +33,21 @@ variable "service_accounts" {
 }
 
 
-
+variable "cb_resources_trigger" {
+  type = map(object({
+    trigger_name        = string
+    trigger_type        = string
+    repo_name           = string
+    trigger_description = string
+    cloudbuild_filename = string
+    branch_name         = string
+    substitutions       = map(string)
+    included_files      = list(string)
+    approval_required   = bool
+  }))
+  description = "List of cloud build triggers to manage in centralised cloud build resources."
+  default     = {}
+}
 
 
 variable "cloudbuild_triggers" {
@@ -79,3 +93,17 @@ variable "installation_id" {
   type        = string
 }
 
+variable "group_cloudbuild_admins" {
+  description = "Cloud Admin group"
+  type        = list(string)
+}
+
+variable "cloud_source_repos" {
+  description = "List of Cloud Source Repos to create with CloudBuild triggers."
+  type        = list(string)
+
+  default = [
+    "gke-demo-infra",
+    "gke-demo-application",
+  ]
+}

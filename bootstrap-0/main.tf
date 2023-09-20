@@ -10,6 +10,9 @@ module "cloud_build" {
   infra_repo_uri          = var.infra_repo_uri
   github_pat              = var.github_pat
   installation_id         = var.installation_id
+  group_cloudbuild_admins = var.group_cloudbuild_admins
+  cloud_source_repos      = var.cloud_source_repos
+  cb_resources_trigger    = var.cb_resources_trigger
 
 
   

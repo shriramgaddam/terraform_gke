@@ -76,3 +76,42 @@ variable "installation_id" {
   description = " github cloud app installation id "
   type        = string
 }
+
+
+variable "cloud_source_repos" {
+  description = "List of Cloud Source Repos to create with CloudBuild triggers."
+  type        = list(string)
+
+  default = [
+    "gke-demo-infra",
+    "gke-demo-application",
+  ]
+}
+
+
+variable "cb_resources_trigger" {
+  type = map(object({
+    trigger_name        = string
+    trigger_type        = string
+    repo_name           = string
+    trigger_description = string
+    cloudbuild_filename = string
+    branch_name         = string
+    substitutions       = map(string)
+    included_files      = list(string)
+    approval_required   = bool
+  }))
+  description = "List of cloud build triggers to manage in centralised cloud build resources."
+  default     = {}
+}
+
+variable "group_cloudbuild_admins" {
+  description = "Cloud Admin group"
+  type        = list(string)
+}
+
+variable "create_cloud_source_repos" {
+  description = "If shared Cloud Source Repos should be created."
+  type        = bool
+  default     = true
+}

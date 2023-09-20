@@ -55,6 +55,7 @@ service_accounts = {
   }
 }
 
+####### GITHUB based  ##############
 
 cloudbuild_triggers = {
   "cloudbuild-infra-dev" = {
@@ -84,10 +85,52 @@ cloudbuild_triggers = {
   #   approval_required   = false
   # }
 }
-
+####### CSR based  ##############
+cb_resources_trigger = {
+  "cb-infra-dev" = {
+    trigger_name         = "cb-csr-trigger-infra-dev"
+    trigger_description  = "Trigger(CSR) for dev cloudbuild project infra components"
+    repo_name            = "gke-demo-infra"
+    branch_name          = "dev"
+    included_files       = ["environments/project/dev/**","environments/resources/dev/**"]
+    #included_files       = ["**"]
+    substitutions = {
+      _SUBNET            = "presales-team-mahesh-15jul-vpc"
+    }
+    cloudbuild_filename  = "cloudbuild.yaml"
+    approval_required    = false
+    trigger_type        = "push"
+   },
+  "cb-application-dev" = {
+    trigger_description = "Trigger(CSR) runs skaffold run on main skaffold yaml file "
+    repo_name           = "gke-demo-application"
+    branch_name          = "dev"
+    included_files      = ["**"]
+    substitutions = {
+      _PROFILE           = "custom"
+      _CLUSTER_NAME      = "presales-team-mahesh-15jul-gke"
+      _PROJECT_ID        = "presales-team-mahesh-15jul"
+    }
+    trigger_name        = "cb-csr-trigger-application-dev"
+    cloudbuild_filename = "cloudbuild-app.yaml"
+    approval_required   = false
+    trigger_type        = "push"
+  }
+}
 
 infra_repo = "terraform_gke"
 infra_secret_id ="infra-repo"
 infra_repo_uri = "https://github.com/shriramgaddam/terraform_gke.git"
 github_pat = "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"
 installation_id = "41651629"
+
+
+group_cloudbuild_admins = [
+  "user:shriram.gaddam@springml.com",
+  "serviceAccount:tf-bootstrap-sa@presales-team-mahesh-15jul.iam.gserviceaccount.com"
+]
+
+cloud_source_repos = [
+    "gke-demo-infra",
+    "gke-demo-application",
+  ]
