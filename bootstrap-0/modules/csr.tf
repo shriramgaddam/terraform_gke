@@ -38,7 +38,7 @@ trigger_template {
     branch_name = each.value.branch_name
     repo_name   = each.value.repo_name
   }
-  
+  substitutions  = each.value.substitutions
 
   filename = each.value.cloudbuild_filename
 }
