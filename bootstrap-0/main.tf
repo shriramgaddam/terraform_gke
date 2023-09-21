@@ -13,6 +13,7 @@ module "cloud_build" {
   group_cloudbuild_admins = var.group_cloudbuild_admins
   cloud_source_repos      = var.cloud_source_repos
   cb_resources_trigger    = var.cb_resources_trigger
+  
 
 
   

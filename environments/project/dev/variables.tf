@@ -16,3 +16,9 @@ variable "provider_request_timeout" {
   type        = string
   default     = "60s"
 }
+
+
+variable "tf_impersonate_service_account" {
+  type        = string
+  description = "Service account to impersonate to run terraform"
+}
